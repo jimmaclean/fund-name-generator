@@ -7,6 +7,9 @@ function random(min, max) {
   }
   return min + Math.floor(Math.random() * (max - min + 1));
 }
+function getRandomItem(array) {
+  return array[random(0, array.length - 1)];
+}
 
 const namePart1 = [
   "Aldrich",
@@ -66,7 +69,7 @@ const namePart1 = [
 ];
 
 module.exports.hello = async (event) => {
-  let fundName = `${namePart1[random(0, namePart1.length - 1)]}'s fund`;
+  let fundName = `${getRandomItem(namePart1)}'s fund`;
   return {
     statusCode: 200,
     body: JSON.stringify(

@@ -161,7 +161,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/fun-name-generator/dev/1617997574300-2021-04-09T19:46:14.300Z/fun-name-generator.zip"
+          "S3Key": "serverless/fun-name-generator/dev/1617997828101-2021-04-09T19:50:28.101Z/fun-name-generator.zip"
         },
         "Handler": "handler.hello",
         "Runtime": "nodejs12.x",
@@ -179,14 +179,14 @@
         "HelloLogGroup"
       ]
     },
-    "HelloLambdaVersiongidM1VGKQc0pWf7QH0HMGdafOrE2j7eiG9tqxqy4": {
+    "HelloLambdaVersionwZmDpMMXT2NKy3LL5NRYswItfhLbvaVMWA3Nz2R3t3Y": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "HelloLambdaFunction"
         },
-        "CodeSha256": "HpLivXgt5bMuDQEQxDlGD3an/tCuI9Q9UiC2Z3M7HMU="
+        "CodeSha256": "P4OjG0/sj2wTQ7WMuILiHuLnKaUoRbQpePQ8Ca+Y8vI="
       }
     }
   },
@@ -199,7 +199,7 @@
     "HelloLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "HelloLambdaVersiongidM1VGKQc0pWf7QH0HMGdafOrE2j7eiG9tqxqy4"
+        "Ref": "HelloLambdaVersionwZmDpMMXT2NKy3LL5NRYswItfhLbvaVMWA3Nz2R3t3Y"
       }
     }
   }
