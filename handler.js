@@ -68,7 +68,7 @@ const namePart1 = [
   "Woodroofe",
 ];
 
-module.exports.hello = async (event) => {
+module.exports.fund = async (event) => {
   let fundName = `${getRandomItem(namePart1)}'s fund`;
   return {
     statusCode: 200,
