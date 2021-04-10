@@ -7,8 +7,11 @@ function random(min, max) {
   }
   return min + Math.floor(Math.random() * (max - min + 1));
 }
+function getRandomKey(array) {
+  return random(0, array.length - 1);
+}
 function getRandomItem(array) {
-  return array[random(0, array.length - 1)];
+  return array[getRandomKey(array)];
 }
 
 const namePart1 = [
@@ -68,13 +71,56 @@ const namePart1 = [
   "Woodroofe",
 ];
 
+const namePart2 = [
+  "Capital",
+  "Investment",
+  "Management",
+  "Trends",
+  "Performance",
+  "Investor",
+  "Portfolio",
+  "Structure",
+  "Approach",
+  "Group",
+  "Holdings",
+  "Savings",
+  "Options",
+];
+
+const namePart3 = [
+  "accumulation",
+  "income",
+  "distribution",
+  "growth",
+  "balanced",
+  "opportunities",
+];
+
+function generateNameSeed(arrayOfArrays) {
+  return arrayOfArrays.map((arr) => getRandomKey(arr));
+}
+const ID_SEPARATOR = "-";
+function encodeSeedString(seedArray) {
+  return seedArray.join(ID_SEPARATOR);
+}
+function decodeSeedString(seedString) {
+  return seedString.split(ID_SEPARATOR).map((str) => parseInt(str));
+}
+
 module.exports.fund = async (event) => {
-  let fundName = `${getRandomItem(namePart1)}'s fund`;
+  let seed = generateNameSeed([namePart1, namePart2, namePart3]);
+  let fundName = `${namePart1[seed[0]]} ${namePart2[seed[1]]} ${
+    namePart3[seed[2]]
+  } fund`;
   return {
     statusCode: 200,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
     body: JSON.stringify(
       {
         message: fundName,
+        seed: encodeSeedString(seed),
         input: event,
       },
       null,
