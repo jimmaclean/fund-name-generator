@@ -11,7 +11,7 @@
 #
 # Happy Coding!
 
-service: fun-name-generator
+service: fund-name-generator
 # app and org for use with dashboard.serverless.com
 #app: your-app-name
 #org: your-org-name
@@ -60,14 +60,23 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-  fund:
-    handler: handler.fund
+  randomFund:
+    handler: handler.randomFund
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
     events:
       - httpApi:
           path: /fund
+          method: get
+  getFund:
+    handler: handler.getFund
+#    The following are a few example events you can configure
+#    NOTE: Please make sure to change your handler code to work with those events
+#    Check the event documentation for details
+    events:
+      - httpApi:
+          path: /fund/{id}
           method: get
 #      - websocket: $connect
 #      - s3: ${env:BUCKET}
